@@ -5,41 +5,47 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Estilos do Cabeçalho (Header) */
 header {
   background-color: #66bb6a;
   height: 10vh;
   color: #ffffff;
-  /* O nav também é block por padrão, então muda o comportamento */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 160px;
 }
 header h2 {
-  display: block;
-  display: inline;
-  display: inline-block;
-  width: 40%;
-  padding-left: 160px;
-  margin-top: 40px;
+  font-size: 2em;
 }
 header nav {
-  display: block;
-  display: inline;
-  width: 40%;
-  display: inline-block;
-  text-align: end;
+  display: flex;
+  gap: 40px;
 }
 header nav a {
-  margin-left: 40px;
   color: #ffffff;
   text-decoration: none;
+  font-size: 1.1em;
 }
 
+/* Estilos da Seção de Fundo (Background) */
 .background {
-  height: 60vh;
+  height: 62vh;
   background-image: url("./assets/background.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   color: #ffffff;
   text-align: center;
-  padding-top: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .background h1 {
   font-size: 5rem;
@@ -49,8 +55,8 @@ header nav a {
 .background p {
   font-size: 2rem;
   width: 80%;
+  max-width: 800px;
   margin-bottom: 20px;
-  margin-left: 100px;
 }
 .background button {
   background-color: #66bb6a;
@@ -58,41 +64,175 @@ header nav a {
   border: none;
   padding: 15px 30px;
   border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+.background button:hover {
+    background-color: #55a05b;
 }
 
+/* Estilos da Seção de Cards (Cards Section) */
 .cards {
   background-color: #f1f8e9;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 60px 20px; /* Ajuste para mais espaçamento */
+  flex-wrap: wrap;
 }
 
 .card {
   width: 20vw;
-  height: 50vh;
-  background-color: #d65d5d;
+  min-width: 250px;
+  min-height: 450px;
+  background-color: #f8f6f6;
   border-radius: 20px;
-  border: solid red;
-  display: inline-block;
+  padding: 15px;
+  
+  /* PROPRIEDADES CHAVE PARA O BOTÃO IR PARA O FUNDO */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+  /* ESTILIZAÇÃO DO FIGMA (Sombra suave, sem borda vermelha) */
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
+
+.card:hover {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+}
+
 .card img {
   width: 100%;
-  
-  border-radius: 20px 20px;
+  max-height: 40%;
+  object-fit: cover;
+  border-radius: 15px 15px;
+  margin-bottom: 15px;
 }
 .card h3 {
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 1.75rem;
+  color: #388e3c; /* Cor verde para títulos */
 }
 .card p {
-  margin-top: 20px;
+  margin-top: 10px;
+  font-size: 1rem;
+  flex-grow: 1; /* Faz o parágrafo ocupar o espaço restante */
+  margin-bottom: 15px;
 }
 .card button {
-  margin-top: 30px;
-  padding: 10px;
+  /* PROPRIEDADE CHAVE: Empurra o botão para o final do card */
+  margin-top: auto; 
+  
+  padding: 10px 20px;
   background-color: #66bb6a;
   color: #ffffff;
   border: none;
   font-size: 1.25rem;
   border-radius: 20px;
-}/*# sourceMappingURL=style.css.map */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.card button:hover {
+    background-color: #55a05b;
+}
 
+/* Estilos da Seção do Formulário (Formulário Section) */
+.formulario-container {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  margin-top: 40px;
+  text-align: center;
+}
 
+.formulario-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.formulario-container p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.formulario-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  
+  /* ESTILIZAÇÃO DO FIGMA */
+  max-width: 600px; /* Largura para o visual do Figma */
+  background-color: #e8f5e9; /* Fundo verde claro */
+  margin: 0 auto;
+  padding: 40px; /* Mais padding interno */
+  border-radius: 15px;
+  border: none; /* Sem borda */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.formulario-container form div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.formulario-container label {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #333;
+  display: block;
+}
+
+.formulario-container input[type="text"],
+.formulario-container input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  
+  /* ESTILIZAÇÃO DO FIGMA (Inputs mais suaves) */
+  border: 1px solid #c8e6c9;
+  border-radius: 8px;
+  background-color: #f1f8e9;
+}
+
+.formulario-container input[type="text"]:focus,
+.formulario-container input[type="email"]:focus {
+  outline: none;
+  border-color: #4caf50; /* Verde escuro no foco */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.formulario-container button[type="submit"] {
+  background-color: #4caf50; /* Verde principal do Figma */
+  color: #ffffff;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: auto;
+  margin-top: 10px;
+}
+
+.formulario-container button[type="submit"]:hover {
+  background-color: #388e3c;
+}
+
+/* Estilo para o Rodapé (Footer) */
+footer {
+  background-color: #333;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+  font-size: 0.9em;
+}
